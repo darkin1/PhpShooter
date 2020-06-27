@@ -60,7 +60,7 @@ final class Game
     public function centerPlayer($player)
     {
         $player->rect->x = (WINDOW_WIDTH - $player->getWidth()) / 2; 
-        $player->rect->y = (WINDOW_HEIGHT - $player->getHeight()) / 2;
+        $player->rect->y = (WINDOW_HEIGHT - $player->getHeight()) - 2;
         // $player->x_vel = 0;
         // $player->y_vel = 0;
     }
@@ -80,6 +80,7 @@ final class Game
 
     public function run()
     {
+        $background = new Background($this->sdl, $this->renderer, 'background.jpg');
         $player = new Player($this->sdl, $this->renderer, 'elephant.png');
         $bullet = $player->bullet($this->sdl, $this->renderer);// TODO: move to constructor?
         $enemy = new Enemy($this->sdl, $this->renderer, 'enemy.png', WINDOW_WIDTH);
@@ -171,6 +172,7 @@ final class Game
             // render
             $this->sdl->SDL_RenderClear($this->renderer);
 
+            $this->sdl->SDL_RenderCopy($this->renderer, $background->texture(), null, null);
             $this->sdl->SDL_RenderCopy($this->renderer, $board->texture(), null, SDL::addr($board->rect()));
             $this->sdl->SDL_RenderCopy($this->renderer, $player->texture(), null, SDL::addr($player->rect()));
             $this->sdl->SDL_RenderCopy($this->renderer, $enemy->texture(), null, SDL::addr($enemy->rect()));
@@ -193,8 +195,9 @@ final class Game
 }
 
 
-// TODO: limit enemy to not go in score board
-// rebortn enemy after X sec.
+// TODO: 
+// [-] limit enemy to not go in score board
+// [x] rebortn enemy after X sec.
 // add time for game
 // change background
 // add game to repositoiry https://github.com/gabrielrcouto/awesome-php-ffi

@@ -38,7 +38,7 @@ final class ScoreBoard extends Box
     {
         $this->font = $this->ttf->TTF_OpenFont(__DIR__ . '/../assets/ARCADECLASSIC.TTF', 18);
         $this->color = $this->ttf->new(Color::class);
-        $this->color->r = 255; //$color->g = 255; $color->b = 255;
+        $this->color->r = 255; $this->color->g = 255; $this->color->b = 255;
     }
 
     protected function generateTexture($unknown = null)
