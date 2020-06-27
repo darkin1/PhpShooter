@@ -6,6 +6,9 @@ use Serafim\SDL\Event;
 use Serafim\SDL\Kernel\Event\Type;
 use Serafim\SDL\TTF\TTF;
 
+define("WINDOW_WIDTH", 640);
+define("WINDOW_HEIGHT", 480);
+
 final class Game 
 {
     const WINDOW_WIDTH = 640;
@@ -82,11 +85,12 @@ final class Game
     {
         $player = new Player($this->sdl, $this->renderer, 'elephant.png');
         $bullet = $player->bullet($this->sdl, $this->renderer);// TODO: move to constructor?
-        $enemy = new Enemy($this->sdl, $this->renderer, 'enemy.png');
+        $enemy = new Enemy($this->sdl, $this->renderer, 'enemy.png', self::WINDOW_WIDTH);
         $board = new ScoreBoard($this->sdl, $this->renderer, $this->ttf);
 
         $this->centerPlayer($player);
-        $enemy->reborn(self::WINDOW_WIDTH);//TODO: move to constructor?
+        $enemy->reborn();//TODO: move to constructor?
+
 
         $up = $right = $down = $left = $fire = false;
         $event = $this->sdl->new(Event::class);
@@ -163,7 +167,7 @@ final class Game
 
             if($this->hitted($bullet, $enemy)) {
                 $fire = false;
-                $enemy->reborn(self::WINDOW_WIDTH);
+                $enemy->reborn();
                 $board->updateScore(10);
             }
 
@@ -196,3 +200,4 @@ final class Game
 // rebortn enemy after X sec.
 // add time for game
 // change background
+// add game to repositoiry https://github.com/gabrielrcouto/awesome-php-ffi
