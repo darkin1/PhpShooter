@@ -1,0 +1,296 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "2394d9485724c34b9576eed37883a1a0",
+    "packages": [
+        {
+            "name": "phplrt/lexer-contracts",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phplrt/lexer-contracts.git",
+                "reference": "d4d80ef5043641da765953661520c7facf97efba"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phplrt/lexer-contracts/zipball/d4d80ef5043641da765953661520c7facf97efba",
+                "reference": "d4d80ef5043641da765953661520c7facf97efba",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Phplrt\\Contracts\\Lexer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kirill Nesmeyanov",
+                    "email": "nesk@xakep.ru"
+                }
+            ],
+            "description": "A set of phplrt lexer abstractions",
+            "homepage": "https://github.com/phplrt",
+            "keywords": [
+                "abstractions",
+                "contracts",
+                "decoupling",
+                "interfaces",
+                "interoperability",
+                "lexer",
+                "parsing",
+                "regex",
+                "standards",
+                "stream",
+                "token",
+                "tokenizer"
+            ],
+            "time": "2020-03-05T18:40:32+00:00"
+        },
+        {
+            "name": "serafim/ffi-loader",
+            "version": "1.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SerafimArts/ffi-loader.git",
+                "reference": "2102bca2983c6b2bedcec0327f6a647a036f0f75"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SerafimArts/ffi-loader/zipball/2102bca2983c6b2bedcec0327f6a647a036f0f75",
+                "reference": "2102bca2983c6b2bedcec0327f6a647a036f0f75",
+                "shasum": ""
+            },
+            "require": {
+                "ext-ffi": "*",
+                "php": ">=7.4",
+                "phplrt/lexer-contracts": "^3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~9.1",
+                "symfony/var-dumper": "~5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Serafim\\FFILoader\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "FFI libraries loader with simple preprocessor",
+            "keywords": [
+                "compiler",
+                "ffi",
+                "loader",
+                "parser"
+            ],
+            "time": "2020-05-23T20:02:02+00:00"
+        },
+        {
+            "name": "serafim/ffi-sdl",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SerafimArts/ffi-sdl.git",
+                "reference": "bc537de1871999846ebad5bca0ed89f04f3f5d2a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SerafimArts/ffi-sdl/zipball/bc537de1871999846ebad5bca0ed89f04f3f5d2a",
+                "reference": "bc537de1871999846ebad5bca0ed89f04f3f5d2a",
+                "shasum": ""
+            },
+            "require": {
+                "ext-ffi": "*",
+                "php": ">=7.4",
+                "serafim/ffi-loader": "~1.0.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~9.0",
+                "serafim/ffi-ide-helper": "^1.0",
+                "symfony/var-dumper": "~5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Serafim\\SDL\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kirill Nesmeyanov",
+                    "email": "nesk@xakep.ru"
+                }
+            ],
+            "description": "PHP FFI to SDL2 bindings",
+            "homepage": "https://github.com/SerafimArts/ffi-sdl",
+            "keywords": [
+                "bindings",
+                "direct media",
+                "ffi",
+                "graphics",
+                "library",
+                "opengl",
+                "sdl"
+            ],
+            "time": "2020-04-11T02:16:52+00:00"
+        },
+        {
+            "name": "serafim/ffi-sdl-image",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SerafimArts/ffi-sdl-image.git",
+                "reference": "d48c93724259e2bd74e548f2f787a472c025a756"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SerafimArts/ffi-sdl-image/zipball/d48c93724259e2bd74e548f2f787a472c025a756",
+                "reference": "d48c93724259e2bd74e548f2f787a472c025a756",
+                "shasum": ""
+            },
+            "require": {
+                "ext-ffi": "*",
+                "php": ">=7.4",
+                "serafim/ffi-sdl": "^1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~9.0",
+                "serafim/ffi-ide-helper": "^1.0",
+                "symfony/var-dumper": "~5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Serafim\\SDL\\Image\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kirill Nesmeyanov",
+                    "email": "nesk@xakep.ru"
+                }
+            ],
+            "description": "PHP FFI to SDL Image bindings",
+            "homepage": "https://github.com/SerafimArts/ffi-sdl-image",
+            "keywords": [
+                "bindings",
+                "ffi",
+                "graphics",
+                "image",
+                "library",
+                "opengl",
+                "sdl"
+            ],
+            "time": "2020-04-11T01:45:34+00:00"
+        },
+        {
+            "name": "serafim/ffi-sdl-ttf",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SerafimArts/ffi-sdl-ttf.git",
+                "reference": "51bbea8025f69068a35716bd3631fc48e21fb4bd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SerafimArts/ffi-sdl-ttf/zipball/51bbea8025f69068a35716bd3631fc48e21fb4bd",
+                "reference": "51bbea8025f69068a35716bd3631fc48e21fb4bd",
+                "shasum": ""
+            },
+            "require": {
+                "ext-ffi": "*",
+                "ext-mbstring": "*",
+                "php": ">=7.4",
+                "serafim/ffi-sdl": "~1.0.3"
+            },
+            "require-dev": {
+                "serafim/ffi-ide-helper": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Serafim\\SDL\\TTF\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kirill Nesmeyanov",
+                    "email": "nesk@xakep.ru"
+                }
+            ],
+            "description": "PHP FFI to SDL TTF bindings",
+            "homepage": "https://github.com/SerafimArts/ffi-sdl-ttf",
+            "keywords": [
+                "bindings",
+                "ffi",
+                "font",
+                "graphics",
+                "library",
+                "opengl",
+                "sdl",
+                "ttf"
+            ],
+            "time": "2020-04-11T04:29:33+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
+}

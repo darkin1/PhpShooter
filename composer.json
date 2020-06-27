@@ -1,0 +1,23 @@
+{
+    "name": "darkin1/phpschooter",
+    "description": "Schooter PHP game",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dariusz Ciesielski",
+            "email": "dariusz@lifeofcto.pl"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Phpschooter\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=7.4",
+        "serafim/ffi-sdl": "^1.0",
+        "serafim/ffi-sdl-image": "^1.0",
+        "serafim/ffi-sdl-ttf": "^1.0"
+    }
+}
