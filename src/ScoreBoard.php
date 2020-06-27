@@ -9,8 +9,6 @@ use Serafim\SDL\Color;
 
 final class ScoreBoard extends Box
 {
-    const WINDOW_WIDTH = 640; //TODO: get from Game
-
     private $ttl;
     private $font;
     private $color;
@@ -67,7 +65,7 @@ final class ScoreBoard extends Box
 
         $this->rect->h = $this->height;
         $this->rect->w = $this->width;
-        $this->rect->x = self::WINDOW_WIDTH - $this->rect->w - 50;
+        $this->rect->x = WINDOW_WIDTH - $this->rect->w - 50;
         $this->rect->y = 10;
     }
 

@@ -11,9 +11,6 @@ define("WINDOW_HEIGHT", 480);
 
 final class Game 
 {
-    const WINDOW_WIDTH = 640;
-    const WINDOW_HEIGHT = 480;
-
     private $window;
     private $renderer;
     private $sdl;
@@ -37,7 +34,7 @@ final class Game
         $this->window = $this->sdl->SDL_CreateWindow(
             $title,
             SDL::SDL_WINDOWPOS_CENTERED, SDL::SDL_WINDOWPOS_CENTERED,
-            self::WINDOW_WIDTH, self::WINDOW_HEIGHT,
+            WINDOW_WIDTH, WINDOW_HEIGHT,
             SDL::SDL_WINDOW_SHOWN
         );
         if ($this->window === null) {
@@ -62,8 +59,8 @@ final class Game
 
     public function centerPlayer($player)
     {
-        $player->rect->x = (self::WINDOW_WIDTH - $player->getWidth()) / 2; 
-        $player->rect->y = (self::WINDOW_HEIGHT - $player->getHeight()) / 2;
+        $player->rect->x = (WINDOW_WIDTH - $player->getWidth()) / 2; 
+        $player->rect->y = (WINDOW_HEIGHT - $player->getHeight()) / 2;
         // $player->x_vel = 0;
         // $player->y_vel = 0;
     }
@@ -72,8 +69,8 @@ final class Game
     {
         if ($player->rect->x <= 0) $player->rect->x = 0; 
         if ($player->rect->y <= 0) $player->rect->y = 0;
-        if ($player->rect->x >= self::WINDOW_WIDTH - $player->rect->w) $player->rect->x = self::WINDOW_WIDTH - $player->rect->w;
-        if ($player->rect->y >= self::WINDOW_HEIGHT - $player->rect->h) $player->rect->y = self::WINDOW_HEIGHT - $player->rect->h;    
+        if ($player->rect->x >= WINDOW_WIDTH - $player->rect->w) $player->rect->x = WINDOW_WIDTH - $player->rect->w;
+        if ($player->rect->y >= WINDOW_HEIGHT - $player->rect->h) $player->rect->y = WINDOW_HEIGHT - $player->rect->h;    
     }
 
     public function hitted($bullet, $enemy): bool
@@ -85,7 +82,7 @@ final class Game
     {
         $player = new Player($this->sdl, $this->renderer, 'elephant.png');
         $bullet = $player->bullet($this->sdl, $this->renderer);// TODO: move to constructor?
-        $enemy = new Enemy($this->sdl, $this->renderer, 'enemy.png', self::WINDOW_WIDTH);
+        $enemy = new Enemy($this->sdl, $this->renderer, 'enemy.png', WINDOW_WIDTH);
         $board = new ScoreBoard($this->sdl, $this->renderer, $this->ttf);
 
         $this->centerPlayer($player);
