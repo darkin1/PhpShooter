@@ -2,6 +2,7 @@
 
 namespace Phpschooter;
 
+use FFI;
 use Serafim\SDL\Image\Image;
 use Serafim\SDL\SurfacePtr;
 use Serafim\SDL\Rect;
@@ -33,6 +34,7 @@ final class Enemy extends Box
 
     public function rebornAfterTime() 
     {
+        $buffer = \FFI::new('char[256]');
         $this->sdl->SDL_AddTimer(
             500, 
             function ($delay, $params) {
@@ -45,7 +47,7 @@ final class Enemy extends Box
             
                 return $delay;
             }, 
-            null
+            \Serafim\SDL\SDL::addr($buffer)
         );
     }
 

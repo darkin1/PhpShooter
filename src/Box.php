@@ -25,6 +25,7 @@ abstract class Box
 
     public function __construct($sdl, $renderer, $textureImg)
     {
+        /** @var \Serafim\SDL\SDLNativeApiAutocomplete $sdl */
         $this->sdl = $sdl;
         $this->renderer = $renderer;
 

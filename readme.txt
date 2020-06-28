@@ -46,20 +46,23 @@ TTF
 8. pon. 22.06
 - refactor - rozdzielenie na klasy
 
-9. pon. 23.06
-- refactor - rozdzielenie na klasy
-
-10. wt. 24.06
+10. wt. 23.06
 - brak czasu
 
-11. śr. 25.06
+11. śr. 24.06
 - refactor - rozdzielenie na klasy
 
-12. czw. 26.06
+12. czw. 25.06
 - refactor - rozdzielenie na klasy
 
-13. pt. 27.06
+13. pt. 26.06
 - refactor - rozdzielenie na klasy
 
-14. pt. 28.06
-- usuniecie wchodzwnia na board przez enemy
+14. sb. 27.06
+- dodanie tła, dodanie czas życia przeciwnika, poprawa assetów
+
+15. nd. 28.06
+- dodanie zliczanie czasu w rundzie
+
+16. pon. 29.06
+- 

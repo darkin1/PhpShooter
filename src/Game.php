@@ -26,8 +26,9 @@ final class Game
      */
     public function __construct(string $title = 'PHP Schooter')
     {
-        /** @var Serafim\SDL\TTF\SDLTTFNativeApiAutocomplete $ttf */
+        /** @var \Serafim\SDL\TTF\SDLTTFNativeApiAutocomplete $ttf */
         $this->ttf = new TTF();
+        /** @var \Serafim\SDL\SDLNativeApiAutocomplete $sdl */
         $this->sdl = new SDL();
         $this->sdl->SDL_Init(SDL::SDL_INIT_VIDEO | SDL::SDL_INIT_TIMER);
 
@@ -83,8 +84,9 @@ final class Game
         $background = new Background($this->sdl, $this->renderer, 'background.jpg');
         $player = new Player($this->sdl, $this->renderer, 'elephant.png');
         $bullet = $player->bullet($this->sdl, $this->renderer);// TODO: move to constructor?
-        $enemy = new Enemy($this->sdl, $this->renderer, 'enemy.png', WINDOW_WIDTH);
+        $enemy = new Enemy($this->sdl, $this->renderer, 'enemy.png');
         $board = new ScoreBoard($this->sdl, $this->renderer, $this->ttf);
+        $roundTime = new RoundTime($this->sdl, $this->renderer, $this->ttf, $board);
 
         $this->centerPlayer($player);
         $enemy->reborn();//TODO: move to constructor?
@@ -174,6 +176,7 @@ final class Game
 
             $this->sdl->SDL_RenderCopy($this->renderer, $background->texture(), null, null);
             $this->sdl->SDL_RenderCopy($this->renderer, $board->texture(), null, SDL::addr($board->rect()));
+            $this->sdl->SDL_RenderCopy($this->renderer, $roundTime->texture(), null, SDL::addr($roundTime->rect()));
             $this->sdl->SDL_RenderCopy($this->renderer, $player->texture(), null, SDL::addr($player->rect()));
             $this->sdl->SDL_RenderCopy($this->renderer, $enemy->texture(), null, SDL::addr($enemy->rect()));
             if($fire)
@@ -199,5 +202,7 @@ final class Game
 // [-] limit enemy to not go in score board
 // [x] rebortn enemy after X sec.
 // add time for game
-// change background
+// [x] change background
+// [] fix timer
 // add game to repositoiry https://github.com/gabrielrcouto/awesome-php-ffi
+// add gif to readme, polish readme
