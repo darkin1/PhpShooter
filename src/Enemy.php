@@ -11,6 +11,9 @@ final class Enemy extends Box
 {
     const LIVE_TIME = 3; // sec.
 
+    private $currentTime;
+    private $lastTime = 0;
+
     public $remainingLiveTime = self::LIVE_TIME;
 
     public function __construct($sdl, $renderer, $textureImg)
@@ -34,21 +37,16 @@ final class Enemy extends Box
 
     public function rebornAfterTime() 
     {
-        $buffer = \FFI::new('char[256]');
-        $this->sdl->SDL_AddTimer(
-            500, 
-            function ($delay, $params) {
+        $this->currentTime = $this->sdl->SDL_GetTicks();
 
-                if($this->remainingLiveTime <= 0) {
-                    $this->reborn();
-                }
+        if ($this->remainingLiveTime <= 0) {
+            $this->reborn();
+        }
 
-                $this->decreaseLifeTime();
-            
-                return $delay;
-            }, 
-            \Serafim\SDL\SDL::addr($buffer)
-        );
+        if ($this->currentTime > $this->lastTime + 1000) {
+            $this->decreaseLifeTime();
+            $this->lastTime = $this->currentTime;
+        }
     }
 
 }

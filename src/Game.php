@@ -156,6 +156,7 @@ final class Game
                 }
             }
 
+            $enemy->rebornAfterTime();
             $roundTime->endRoundAfterTime();
             $player->initializeMovement($up, $right, $down, $left);
             $player->initializeFire($fire, $bullet);

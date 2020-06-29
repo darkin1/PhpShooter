@@ -65,4 +65,4 @@ TTF
 - dodanie zliczanie czasu w rundzie
 
 16. pon. 29.06
-- 
+- zmiana sposobu generowania timera dla RoundTime i Enemy - zapobiegło przed błędem core-dump 
