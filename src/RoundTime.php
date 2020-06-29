@@ -9,11 +9,13 @@ use Serafim\SDL\Color;
 
 final class RoundTime extends Box
 {
-    const ROUND_TIME = 5;
+    const ROUND_TIME = 20;
 
     private $ttl;
     private $font;
     private $color;
+    private $currentTime;
+    private $lastTime = 0;
 
     protected int $height = 28;
     protected int $width = 84;
@@ -33,11 +35,12 @@ final class RoundTime extends Box
         $this->board = $board;
         $this->font;
         $this->color;
+        $this->currentTime;
+        $this->lastTime;
 
         $this->includeFont();
         $this->generateTexture();
         $this->generateRect();
-        $this->endRoundAfterTime();
     }
 
     protected function includeFont()
@@ -86,27 +89,22 @@ final class RoundTime extends Box
 
     public function newRound()
     {
-        $this->remainingTime = self::ROUND_TIME;
+        $this->remainingTime = self::ROUND_TIME + 1;
         $this->board->scored = 0;
         $this->board->generateTexture();
     }
 
     public function endRoundAfterTime()
     {
-        $buffer = \FFI::new('char[256]');
-        $this->sdl->SDL_AddTimer(
-            1000,
-            function ($delay, $params) {
+        $this->currentTime = $this->sdl->SDL_GetTicks();
 
-                if ($this->remainingTime <= 0) {
-                    $this->newRound();
-                }
+        if ($this->remainingTime <= 0) {
+            $this->newRound();
+        }
 
-                $this->updateRemainingTime();
-
-                return $delay;
-            },
-            \Serafim\SDL\SDL::addr($buffer)//TODO: zwraca CDATA zamiast CPtr
-        );
+        if ($this->currentTime > $this->lastTime + 1000) {
+            $this->updateRemainingTime();
+            $this->lastTime = $this->currentTime;
+        }
     }
 }

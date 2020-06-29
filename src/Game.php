@@ -156,6 +156,7 @@ final class Game
                 }
             }
 
+            $roundTime->endRoundAfterTime();
             $player->initializeMovement($up, $right, $down, $left);
             $player->initializeFire($fire, $bullet);
             // if($fire) 
@@ -201,8 +202,8 @@ final class Game
 // TODO: 
 // [-] limit enemy to not go in score board
 // [x] rebortn enemy after X sec.
-// add time for game
+// [x] add time for game
 // [x] change background
-// [] fix timer
+// [] fix timer | fix round timer
 // add game to repositoiry https://github.com/gabrielrcouto/awesome-php-ffi
 // add gif to readme, polish readme
