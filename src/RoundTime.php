@@ -33,10 +33,6 @@ final class RoundTime extends Box
         $this->renderer = $renderer;
         $this->ttf = $ttf;
         $this->board = $board;
-        $this->font;
-        $this->color;
-        $this->currentTime;
-        $this->lastTime;
 
         $this->includeFont();
         $this->generateTexture();

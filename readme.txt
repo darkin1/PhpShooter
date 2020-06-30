@@ -66,3 +66,9 @@ TTF
 
 16. pon. 29.06
 - zmiana sposobu generowania timera dla RoundTime i Enemy - zapobiegło przed błędem core-dump 
+
+17. wt. 30.06
+- 
+
+18. sr. 01.06
+- 

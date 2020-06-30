@@ -157,25 +157,22 @@ final class Game
             }
 
             $enemy->rebornAfterTime();
+            $enemy->restoreAfterShrinkage();            
             $roundTime->endRoundAfterTime();
             $player->initializeMovement($up, $right, $down, $left);
             $player->initializeFire($fire, $bullet);
-            // if($fire) 
-            //     $bullet->shoot();
-            // if(!$fire) 
-            //     $bullet->setPosition($player->rect->x, $player->rect->y, $player->rect->w, $player->rect->h);
             
             $this->gameFrameCollisionDetection($player);
 
             if($this->hitted($bullet, $enemy)) {
                 $fire = false;
                 $enemy->reborn();
+                $enemy->shrink();
                 $board->updateScore(10);
             }
 
             // render
             $this->sdl->SDL_RenderClear($this->renderer);
-
             $this->sdl->SDL_RenderCopy($this->renderer, $background->texture(), null, null);
             $this->sdl->SDL_RenderCopy($this->renderer, $board->texture(), null, SDL::addr($board->rect()));
             $this->sdl->SDL_RenderCopy($this->renderer, $roundTime->texture(), null, SDL::addr($roundTime->rect()));
@@ -205,6 +202,10 @@ final class Game
 // [x] rebortn enemy after X sec.
 // [x] add time for game
 // [x] change background
-// [] fix timer | fix round timer
-// add game to repositoiry https://github.com/gabrielrcouto/awesome-php-ffi
-// add gif to readme, polish readme
+// [x] fix timer | fix round timer
+// [x] do something after hitted
+// [] slash text for end round
+// [] sounds?
+// [] cleanup
+// [] add game to repositoiry https://github.com/gabrielrcouto/awesome-php-ffi
+// [] add gif to readme, polish readme

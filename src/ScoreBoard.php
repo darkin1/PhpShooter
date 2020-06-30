@@ -26,8 +26,6 @@ final class ScoreBoard extends Box
         $this->sdl = $sdl;
         $this->renderer = $renderer;
         $this->ttf = $ttf;
-        $this->font;
-        $this->color;
 
         $this->includeFont();
         $this->generateTexture();
