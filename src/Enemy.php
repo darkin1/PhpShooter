@@ -27,18 +27,18 @@ final class Enemy extends Box
     public function shrink()
     {
         $this->hittedTick = $this->sdl->SDL_GetTicks();
-        $this->rect->h -= 24;
-        $this->rect->w -= 24;
-        $this->rect->x += 12;
-        $this->rect->y += 12;
+        $this->rect->h -= $this->height / 2;
+        $this->rect->w -= $this->width / 2;
+        $this->rect->x += $this->width / 4;
+        $this->rect->y += $this->width / 4;
     }
     public function restoreAfterShrinkage()
     {
         if(!is_null($this->hittedTick) && $this->hittedTick + 300 <= $this->sdl->SDL_GetTicks()) {
-            $this->rect->h += 24;
-            $this->rect->w += 24;
-            $this->rect->x -= 12;
-            $this->rect->y -= 12;
+            $this->rect->h = $this->height;
+            $this->rect->w = $this->width;
+            $this->rect->x -= $this->width / 4;
+            $this->rect->y -= $this->width / 4;
             $this->hittedTick = null;
         }
     }

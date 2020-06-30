@@ -68,7 +68,13 @@ TTF
 - zmiana sposobu generowania timera dla RoundTime i Enemy - zapobiegło przed błędem core-dump 
 
 17. wt. 30.06
+- dodanie zmniejszenia przeciwnika po jego uderzeniu 
+
+18. sr. 01.07
 - 
 
-18. sr. 01.06
+19. czw. 02.07
+- 
+
+20. pt. 03.07
 - 
