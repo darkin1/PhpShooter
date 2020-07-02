@@ -71,10 +71,10 @@ TTF
 - dodanie zmniejszenia przeciwnika po jego uderzeniu 
 
 18. sr. 01.07
-- 
+- brak czasu 
 
 19. czw. 02.07
-- 
+- Utworzenie Splash ze scorem
 
 20. pt. 03.07
 - 

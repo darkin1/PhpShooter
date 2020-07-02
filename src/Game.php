@@ -87,15 +87,20 @@ final class Game
         $enemy = new Enemy($this->sdl, $this->renderer, 'enemy.png');
         $board = new ScoreBoard($this->sdl, $this->renderer, $this->ttf);
         $roundTime = new RoundTime($this->sdl, $this->renderer, $this->ttf, $board);
+        $splashRound = new SplashRound($this->sdl, $this->renderer, $this->ttf);
 
         $this->centerPlayer($player);
         $enemy->reborn();//TODO: move to constructor?
 
 
+        $currentTime;
+        $lastTime = 0;
+        $newRound = false;
         $up = $right = $down = $left = $fire = false;
         $event = $this->sdl->new(Event::class);
         $quit = false;
         while (!$quit) {
+
             $this->sdl->SDL_PollEvent(SDL::addr($event));
             if ($event->type === Type::SDL_QUIT) {
                 $quit = true;
@@ -156,9 +161,11 @@ final class Game
                 }
             }
 
+            if ($roundTime->endRoundAfterTime()) {
+                $newRound = true;
+            }
             $enemy->rebornAfterTime();
             $enemy->restoreAfterShrinkage();            
-            $roundTime->endRoundAfterTime();
             $player->initializeMovement($up, $right, $down, $left);
             $player->initializeFire($fire, $bullet);
             
@@ -178,10 +185,15 @@ final class Game
             $this->sdl->SDL_RenderCopy($this->renderer, $roundTime->texture(), null, SDL::addr($roundTime->rect()));
             $this->sdl->SDL_RenderCopy($this->renderer, $player->texture(), null, SDL::addr($player->rect()));
             $this->sdl->SDL_RenderCopy($this->renderer, $enemy->texture(), null, SDL::addr($enemy->rect()));
+
             if($fire)
                 $this->sdl->SDL_RenderCopy($this->renderer, $bullet->texture(), null, SDL::addr($bullet->rect()));
-            
 
+            if ($newRound) {
+                $this->sdl->SDL_RenderCopy($this->renderer, $splashRound->texture(), null, SDL::addr($splashRound->rect()));
+
+                $newRound = $splashRound->show();
+            }
 
             $this->sdl->SDL_SetRenderDrawColor($this->renderer, 0, 0, 0, 255); //background color
             $this->sdl->SDL_RenderPresent($this->renderer);
@@ -204,7 +216,7 @@ final class Game
 // [x] change background
 // [x] fix timer | fix round timer
 // [x] do something after hitted
-// [] slash text for end round
+// [x] slash text for end round
 // [] sounds?
 // [] cleanup
 // [] add game to repositoiry https://github.com/gabrielrcouto/awesome-php-ffi

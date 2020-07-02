@@ -7,10 +7,8 @@ use Serafim\SDL\SurfacePtr;
 use Serafim\SDL\Rect;
 use Serafim\SDL\Color;
 
-final class RoundTime extends Box
+final class SplashRound extends Box
 {
-    const ROUND_TIME = 15;
-
     private $ttl;
     private $font;
     private $color;
@@ -20,16 +18,11 @@ final class RoundTime extends Box
     protected int $height = 28;
     protected int $width = 84;
 
-    public $remainingTime = self::ROUND_TIME; // sec.
-
-    protected $board;
-
-    public function __construct($sdl, $renderer, $ttf, $board)
+    public function __construct($sdl, $renderer, $ttf)
     {
         $this->sdl = $sdl;
         $this->renderer = $renderer;
         $this->ttf = $ttf;
-        $this->board = $board;
 
         $this->includeFont();
         $this->generateTexture();
@@ -40,14 +33,14 @@ final class RoundTime extends Box
     {
         $this->font = $this->ttf->TTF_OpenFont(__DIR__ . '/../assets/ARCADECLASSIC.TTF', 18);
         $this->color = $this->ttf->new(Color::class);
-        $this->color->r = 255;
-        $this->color->g = 255;
-        $this->color->b = 255;
+        $this->color->r = 79;
+        $this->color->g = 91;
+        $this->color->b = 147;
     }
 
     protected function generateTexture($unknown = null)
     {
-        $surface = $this->ttf->TTF_RenderText_Solid($this->font, 'Time left    ' . $this->remainingTime, $this->color);
+        $surface = $this->ttf->TTF_RenderText_Solid($this->font, 'NEW ROUND', $this->color);
         if ($surface === null) {
             throw new \Exception(sprintf('Could not render surface: %s', $this->sdl->SDL_GetError()));
         }
@@ -69,39 +62,24 @@ final class RoundTime extends Box
 
         $this->rect->h = $this->height;
         $this->rect->w = $this->width;
-        $this->rect->x = 30;
+        $this->rect->x = (WINDOW_WIDTH / 2) - ($this->width / 2);
         $this->rect->y = 10;
     }
 
-    public function updateRemainingTime()
-    {
-        $this->remainingTime--;
-
-        $this->generateTexture();
-    }
-
-    public function newRound()
-    {
-        $this->remainingTime = self::ROUND_TIME + 1;
-        $this->board->scored = 0;
-        $this->board->generateTexture();
-    }
-
-    public function endRoundAfterTime()
+    public function show()
     {
         $this->currentTime = $this->sdl->SDL_GetTicks();
 
-        if ($this->remainingTime <= 0) {
-            $this->newRound();
-
-            return true;
-        }
-
-        if ($this->currentTime > $this->lastTime + 1000) {
-            $this->updateRemainingTime();
+        if ($this->lastTime == 0) {
             $this->lastTime = $this->currentTime;
         }
 
-        return false;
+        if ($this->currentTime > $this->lastTime + 2000) {
+            $this->lastTime = 0;
+
+            return false;
+        }
+
+        return true;
     }
 }
