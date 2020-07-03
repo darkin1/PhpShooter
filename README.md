@@ -2,7 +2,9 @@
 
 A schooter game written in PHP:FFI/SDL2
 
-<img src="doc/phpschooter.gif?raw=true" width="350" align="center" alt="Php schooter screenshot">
+<p align="center">
+    <img src="doc/phpschooter.gif?raw=true" width="450" alt="Php schooter screenshot">
+</p>
 
 ## Requirements
 
