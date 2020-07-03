@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpschooter;
+namespace Phpshooter;
 
 use Serafim\SDL\Image\Image;
 use Serafim\SDL\SurfacePtr;

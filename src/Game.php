@@ -1,5 +1,5 @@
 <?php
-namespace Phpschooter;
+namespace Phpshooter;
 
 use Serafim\SDL\SDL;
 use Serafim\SDL\Event;
@@ -24,7 +24,7 @@ final class Game
      * @param int    $width  in pixels
      * @param int    $height in pixels
      */
-    public function __construct(string $title = 'PHP Schooter')
+    public function __construct(string $title = 'PHP Shooter')
     {
         /** @var \Serafim\SDL\TTF\SDLTTFNativeApiAutocomplete $ttf */
         $this->ttf = new TTF();

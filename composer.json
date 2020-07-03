@@ -1,6 +1,6 @@
 {
-    "name": "darkin1/phpschooter",
-    "description": "Schooter PHP game",
+    "name": "darkin1/phpshooter",
+    "description": "Shooter PHP game",
     "type": "project",
     "license": "MIT",
     "authors": [
@@ -11,7 +11,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Phpschooter\\": "src/"
+            "Phpshooter\\": "src/"
         }
     },
     "require": {

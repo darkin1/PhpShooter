@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpschooter;
+namespace Phpshooter;
 
 use FFI;
 use Serafim\SDL\Image\Image;
