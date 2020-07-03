@@ -16,7 +16,7 @@ abstract class Box
     protected $texture;
     public $rect;
 
-    protected int $height = 48;//TODO: change to const
+    protected int $height = 48;
     protected int $width = 48;
 
     public float $x_vel = self::SPEED;

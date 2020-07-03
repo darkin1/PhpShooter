@@ -62,8 +62,6 @@ final class Game
     {
         $player->rect->x = (WINDOW_WIDTH - $player->getWidth()) / 2; 
         $player->rect->y = (WINDOW_HEIGHT - $player->getHeight()) - 2;
-        // $player->x_vel = 0;
-        // $player->y_vel = 0;
     }
 
     public function gameFrameCollisionDetection($player)
@@ -83,14 +81,14 @@ final class Game
     {
         $background = new Background($this->sdl, $this->renderer, 'background.jpg');
         $player = new Player($this->sdl, $this->renderer, 'elephant.png');
-        $bullet = $player->bullet($this->sdl, $this->renderer);// TODO: move to constructor?
+        $bullet = $player->bullet($this->sdl, $this->renderer);
         $enemy = new Enemy($this->sdl, $this->renderer, 'enemy.png');
         $board = new ScoreBoard($this->sdl, $this->renderer, $this->ttf);
         $roundTime = new RoundTime($this->sdl, $this->renderer, $this->ttf, $board);
         $splashRound = new SplashRound($this->sdl, $this->renderer, $this->ttf);
 
         $this->centerPlayer($player);
-        $enemy->reborn();//TODO: move to constructor?
+        $enemy->reborn();
 
 
         $currentTime;
@@ -201,23 +199,8 @@ final class Game
             $this->sdl->SDL_Delay(1000/60);
         }
         
-       //TODO: skasować 
         $this->sdl->SDL_DestroyRenderer($this->renderer);
         $this->sdl->SDL_DestroyWindow($this->window);
         $this->sdl->SDL_Quit();
     }
 }
-
-
-// TODO: 
-// [-] limit enemy to not go in score board
-// [x] rebortn enemy after X sec.
-// [x] add time for game
-// [x] change background
-// [x] fix timer | fix round timer
-// [x] do something after hitted
-// [x] slash text for end round
-// [] sounds?
-// [] cleanup
-// [] add game to repositoiry https://github.com/gabrielrcouto/awesome-php-ffi
-// [] add gif to readme, polish readme

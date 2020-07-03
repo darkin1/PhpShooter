@@ -48,7 +48,6 @@ final class Player extends Box
 
     public function bullet($sdl, $renderer)
     {
-        //TODO: check why can not use $this->sdl, $this->renderer
         return new Bullet($sdl, $renderer, 'bullet.png');
     }
     public function initializeFire($fire, $bullet)

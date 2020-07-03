@@ -12,8 +12,8 @@ final class Bullet extends Box
 
     public function setPosition($playerX, $playerY, $playerW, $playerH)
     {
-        $this->rect->y = $playerY - $playerH + 15; //góra playera
-        $this->rect->x = $playerX + (($playerW/2) - ($this->rect->w/2)); //srodek playera
+        $this->rect->y = $playerY - $playerH + 15;
+        $this->rect->x = $playerX + (($playerW/2) - ($this->rect->w/2));
     }
 
     public function shoot()
