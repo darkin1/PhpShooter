@@ -1,6 +1,6 @@
 # PhpSchooter
 
-A schooter game written in PHP:[FFI](https://www.php.net/manual/en/class.ffi.php)/SDL2/[FFI SDL Bindings](https://github.com/SerafimArts/ffi-sdl)
+A schooter game written in PHP:[FFI](https://www.php.net/manual/en/class.ffi.php)/[SDL2](https://www.libsdl.org/)/[FFI SDL Bindings](https://github.com/SerafimArts/ffi-sdl)
 
 <p align="center">
     <img src="doc/phpschooter.gif?raw=true" width="450" alt="Php schooter screenshot">
